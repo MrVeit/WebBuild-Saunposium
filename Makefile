@@ -1,13 +1,12 @@
 ROOT_PATH = /root/WebBuild-Saunposium/*
 NGINX_PATH = /var/www/saunposium.logarithm.games
 
-BUILD_REPO = https://github.com/MrVeit/WebBuild-Saunposium
-
-clone:
-	sudo git clone $(BUILD_REPO) /root/
-
-clean:
+clean_nginx:
 	sudo rm -rf $(NGINX_PATH)/*
+
+clean_local:
+	cd
+	rm -rf ${ROOT_PATH}
 
 update: clean
 	sudo mkdir -p $(NGINX_PATH)
@@ -15,6 +14,6 @@ update: clean
 
 help:
 	@echo "Usage:"
-	@echo " make clone - Clones the build repository to the root directory"
-	@echo " make clean - Deletes build files for Nginx in the startup directory"
+	@echo " make clean_nginx - Deletes build files for Nginx in the startup directory"
+	@echo " make clean_local - Deletes build files in the root directoty"
 	@echo " make update - Updates data from a recently cloned repository with a build in the root directory to the directory for nginx"
