@@ -8,7 +8,7 @@ clean_local:
 	cd
 	rm -rf ${ROOT_PATH}
 
-update: clean
+update: clean_nginx
 	sudo mkdir -p $(NGINX_PATH)
 	sudo mv $(ROOT_PATH) $(NGINX_PATH)
 

@@ -87,11 +87,11 @@
       var loadingScreen = document.getElementById('loading-screen');
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebBuild-Saunposium.loader.js";
+      var loaderUrl = buildUrl + "/TelegramMiniApp-Saunposium-WebBuild.loader.js";
       var config = {
-        dataUrl: buildUrl + "/7ab060422adfaeee9ae7f2b92d23b83a.data.unityweb",
-        frameworkUrl: buildUrl + "/486454492ffe625e4c72c7f717501cd7.js.unityweb",
-        codeUrl: buildUrl + "/b1e994c9c926f10f7bb82bcae96f6882.wasm.unityweb",
+        dataUrl: buildUrl + "/379632428c668dedb139c48758707bdb.data.unityweb",
+        frameworkUrl: buildUrl + "/f8594b91aafdcbf535bcd2154784ad31.js.unityweb",
+        codeUrl: buildUrl + "/29447b1d178ed372938772c483b224bd.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Logarithm.Games",
         productName: "Saunposium",
@@ -131,6 +131,14 @@
         console.log("Telegram web app has been expanded to full screen");
 
         var version = Telegram.WebApp.version;
+        var versionFloat = parseFloat(version);
+
+        if (versionFloat >= 7.7) 
+        {
+            Telegram.WebApp.disableVerticalSwipes();
+
+            console.log('Vertical swipes has benn disabled');
+        }
 
         console.log(`Telegram Web App opened with version: ${version}`);
         console.log(`Telegram Web App checked latest version status with result: ${Telegram.WebApp.isVersionAtLeast(version)}`);
